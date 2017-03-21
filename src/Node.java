@@ -5,9 +5,17 @@ public class Node {
     private Object data;
     private Node next;
 
-    public Node(Object obj) {}
-    public void setNext(Node next) {}
-    public Node getNext() {}
-    public Object getData() {}
+    public Node(Object obj) {
+        this.data = obj;
+    }
+    public void setNext(Node next) {
+        this.next = next;
+    }
+    public Node getNext() {
+        return next;
+    }
+    public Object getData() {
+        return data;
+    }
 
 }
