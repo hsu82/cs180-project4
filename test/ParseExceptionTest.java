@@ -27,7 +27,7 @@ public class ParseExceptionTest {
         try {
             parser.getDocument(null);
         } catch (Exception e) {
-            assertEquals("Check that the message you are throwing is correct.", e.getMessage(), "getDocument() failed. String url is null.");
+            assertEquals("Check that the message you are throwing is correct.", "getDocument() failed. String url is null.", e.getMessage());
         }
     }
     @Test(timeout = 1000)
@@ -36,7 +36,7 @@ public class ParseExceptionTest {
         try {
             parser.getDocument("");
         } catch (Exception e) {
-            assertEquals("Check that the message you are throwing is correct.", e.getMessage(), "getDocument() failed. String url is empty.");
+            assertEquals("Check that the message you are throwing is correct.", "getDocument() failed. String url is empty.", e.getMessage());
         }
     }
     @Test(timeout = 1000)
@@ -54,7 +54,7 @@ public class ParseExceptionTest {
         try {
             parser.getDocument("http://");
         } catch (Exception e) {
-            assertEquals("Check that the message you are throwing is correct.", e.getMessage(), "getDocument() failed. Connection failed.");
+            assertEquals("Check that the message you are throwing is correct.", "getDocument() failed. Connection failed.", e.getMessage());
         }
     }
     @Test(timeout = 1000)
@@ -94,7 +94,7 @@ public class ParseExceptionTest {
             parser.getBody(null);
         } catch (Exception e) {
             assertEquals("Check that the message you are throwing is correct.",
-                    e.getMessage(), "getBody() failed. Document parameter is null.");
+                    "getBody() failed. Document parameter is null.", e.getMessage());
         }
     }
 
