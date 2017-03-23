@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by jay on 2017/3/21.
  */
@@ -32,7 +34,7 @@ public class MyQueue {
         count--;
     }
     public boolean isEmpty() {
-        if(count = 0 || head = null){
+        if(count == 0 || head == null){
             return true;
         }
         return false;
