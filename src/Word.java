@@ -7,11 +7,12 @@ import java.util.List;
  */
 public class Word implements Serializable {
     private String word;
-    private List<Integer> postings;
+    private List<Integer> postings = new ArrayList<>();
     static long serialVersionUID;
-    Word(String word, int urlID){
+    public Word(String word, int urlID){
         this.word = word;
-        postings.add(urlID);
+        this.postings.add(urlID);
+        this.serialVersionUID = -3696191086353573895L;
     }
     public void addURLID(int urlID){
         postings.add(urlID);

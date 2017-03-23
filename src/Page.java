@@ -20,6 +20,7 @@ public class Page implements Serializable, Comparable<Page> {
     Page(String url, int urlID){
         this.url = url;
         this.urlID = urlID;
+        this.serialVersionUID = -1827677255104766839L;
     }
     public int getURLID(){
         return urlID;
