@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Created by jay on 2017/3/21.
  */
@@ -7,40 +5,63 @@ public class MyQueue extends Object{
     private Node head;
     private int count = 0; //Queue size
     private Object monitor;
-    private ArrayList<Node> nodes = new ArrayList<Node>();
 
-    //how even
+
 
     public MyQueue(){
-        if(!isEmpty()) {
-            nodes.add(head);
-            count = 1;
-        }
+
     }
 
     public Node add() {
-        Node next = head.getNext();
-        while(next.getNext() != null) {
-            next = next.getNext();
+
+
+        Object o = new Object();
+        Node sn = new Node(o);
+
+        if(head == null){
+            head = sn;
+            count++;
+            return head;
+
         }
-        nodes.add(next);
-        count++;
-        return next;
+
+        Node next = head.getNext();
+
+        if(next == null){
+            head.setNext(sn);
+            count++;
+            return head.getNext();
+
+        }else {
+            while (next.getNext() != null) {
+                next = next.getNext();
+                if(next.getNext() == null){
+                    next.setNext(sn);
+                    count++;
+                    return next.getNext();
+                }
+            }
+        }
+
+        return next.getNext();
     }
 
     public Node remove() { //remove first element in Queue
+        //returns removed Node
+        // System.out.println("--------Remove MEthod-------------");
+        //  System.out.println(head);
+
         if(count == 0){
             return null;
         }
-        Node remove = nodes.get(0);
-        nodes.remove(0);
-        count--;
-
-        if(count >=1) {
-            head = nodes.get(0);
+        if(head == null){
+            count = 0;
+            return head;
         }
-        else
-            head = null;
+
+        Node remove = head;
+        head = head.getNext();
+        count--;
         return remove;
     }
 
@@ -55,26 +76,41 @@ public class MyQueue extends Object{
         return count;
     }
 
-    public void add(String s){
+    public void add(Object o){
+        // System.out.println("============Add Method==============");
 
-        Node sn = new Node(s);
-        nodes.add(sn);
-        //    for(int i = 0; i < count; i++){
-        //        System.out.println("Add: " + nodes.get(i).getData());
-        //    }
-        count++;
+        Node sn = new Node(o);
+
+        if(head == null){
+            head = sn;
+            //   System.out.println("head: " + head);
+            count++;
+            return;
+        }
+
+        Node next = head.getNext();
+        if(next == null){
+            head.setNext(sn);
+            count++;
+            //   System.out.println("next-null");
+            return;
+
+        }else {
+            while(next.getNext() != null){
+
+                next = next.getNext();
+
+            }
+            next.setNext(sn);
+            count++;
+
+        }
+
     }
 
-    public void add(int n){
-        Node in = new Node(n);
-        nodes.add(in);
-        count++;
-        //    for(int i = 0; i < count; i++){
-        //       System.out.println("Add: " + nodes.get(i).getData());
-        //    }
-    }
 
     public Node peek() {
-        return nodes.get(0);
+
+        return head;
     }
 }
