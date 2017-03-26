@@ -34,7 +34,6 @@ public class Parser {
             }
             return d;
         }catch (IllegalArgumentException e){
-            e.printStackTrace();
             throw new ParseException("getDocument() failed. Connection failed.");
 
         }
